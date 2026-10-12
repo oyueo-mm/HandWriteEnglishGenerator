@@ -45,14 +45,14 @@
 
 ```mermaid
 flowchart TD
-    A[Handwritten image<br/>28 × 28] --> B[Encoder]
-    C[Letter label<br/>26-dimensional one-hot] --> B
-    B --> D[Mean μ and log variance log σ²]
-    D --> E[Reparameterization<br/>z = μ + σ ⊙ ε]
-    E --> F[Decoder]
+    A["Handwritten image<br/>28 × 28"] --> B["Encoder"]
+    C["Letter label<br/>26-dimensional one-hot"] --> B
+    B --> D["Mean μ and log variance log σ²"]
+    D --> E["Reparameterization<br/>z = μ + σ ⊙ ε"]
+    E --> F["Decoder"]
     C --> F
-    F --> G[Generated letter image<br/>28 × 28]
-    H[Random z ~ N(0, I)] -. Generation without input image .-> F
+    F --> G["Generated letter image<br/>28 × 28"]
+    H["Random z ~ N(0, I)"] -.->|Generation without input image| F
 ```
 
 **생성 과정:** 추론할 때는 입력 손글씨 이미지 없이, 무작위 잠재벡터 `z`와 글자 레이블을 디코더에 전달하여 이미지를 만듭니다.
